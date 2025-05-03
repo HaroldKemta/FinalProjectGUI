@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
@@ -10,11 +12,11 @@ public class User {
     public User(String name, int userId) {
         this.name = name;
         this.userId = userId;
-        this.accounts = new ArrayList<>(); // creates empty list of bank accounts for user
+        this.accounts = new ArrayList<>();
     }
 
     public void addAccount(BankAccount account) {
-        accounts.add(account);  // stores in user's account list
+        accounts.add(account);
     }
 
     public void viewAccounts() {
@@ -22,6 +24,14 @@ public class User {
         for (BankAccount acc : accounts) {
             System.out.println(" - " + acc.getAccountNumber() + " | Balance: $" + acc.getBalance());
         }
+    }
+
+    public String getAccountsInfo() {
+        StringBuilder sb = new StringBuilder();
+        for (BankAccount acc : accounts) {
+            sb.append(acc.toString()).append("\n");
+        }
+        return sb.toString();
     }
 
     public String getName() {
