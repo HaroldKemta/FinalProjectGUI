@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.List;
 
 public class User {
 
@@ -32,6 +30,26 @@ public class User {
             sb.append(acc.toString()).append("\n");
         }
         return sb.toString();
+    }
+
+    // Getter method for CheckingAccount
+    public CheckingAccount getCheckingAccount() {
+        for (BankAccount acc : accounts) {
+            if (acc instanceof CheckingAccount) {
+                return (CheckingAccount) acc;
+            }
+        }
+        return null; // Returns null if no CheckingAccount exists
+    }
+
+    // Getter method for SavingsAccount
+    public SavingsAccount getSavingsAccount() {
+        for (BankAccount acc : accounts) {
+            if (acc instanceof SavingsAccount) {
+                return (SavingsAccount) acc;
+            }
+        }
+        return null; // Returns null if no SavingsAccount exists
     }
 
     public String getName() {
